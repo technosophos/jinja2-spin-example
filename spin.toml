@@ -1,0 +1,21 @@
+spin_manifest_version = 2
+
+[application]
+authors = ["Matt Butcher <matt.butcher@fermyon.com>"]
+description = "Example using Jinja2 within a Python Spin app"
+name = "jinja2-example"
+version = "0.1.0"
+
+[[trigger.http]]
+route = "/..."
+component = "jinja2-example"
+
+[component.jinja2-example]
+source = "app.wasm"
+# IMPORTANT: We specify here that all of the HTML files in templates/ should
+# be loaded. By default, the destination of these will be /templates/
+# See:  https://developer.fermyon.com/spin/v2/manifest-reference#the-component-table
+files = ["templates/*.html"]
+[component.jinja2-example.build]
+command = "spin py2wasm app -o app.wasm"
+watch = ["app.py", "Pipfile"]

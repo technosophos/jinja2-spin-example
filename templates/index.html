@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {# Use a simple variable for title #}
+    <title>{{title}}</title>
+</head>
+
+<body>
+    {# Use a filter to modify the title #}
+    <h1>{{title | upper}}</h1>
+    Here are some cool things about Spin:
+    <ul>
+        {# Range over a list #}
+        {% for feature in features %}
+        <li>{{feature}}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
